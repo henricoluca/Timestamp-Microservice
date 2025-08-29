@@ -13,6 +13,10 @@ app.get("/api/:date?", (req, res, next) => {
     let date;
 
 
+    if (!dateParam) {
+        date = new Date();
+    }
+    
     if (/^\d+$/.test(dateParam)) {
         date = new Date(parseInt(dateParam));
     } else {
